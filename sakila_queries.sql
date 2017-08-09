@@ -25,6 +25,14 @@ OR address.city_id = 42
 OR address.city_id = 312
 OR address.city_id = 459);
 
+or like this:
+
+SELECT customer.first_name, customer.last_name, customer.email, address.address
+FROM customer
+	JOIN address ON customer.address_id = address.address_id
+WHERE customer.store_id = 1
+AND address.city_id IN (1, 42, 312, 459);
+
 5:
 select film.title, film.description, film.release_year, film.rating, film.special_features, film_actor.actor_id from film
 join film_actor on film.film_id = film_actor.film_id
